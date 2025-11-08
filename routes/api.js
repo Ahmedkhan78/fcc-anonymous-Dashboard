@@ -1,7 +1,6 @@
 "use strict";
-let threadHandler = require("../controllers/threadHandler");
-let replyHandler = require("../controllers/replyHandler");
-let mongoose = require("mongoose");
+const threadHandler = require("../controllers/threadHandler");
+const replyHandler = require("../controllers/replyHandler");
 
 module.exports = function (app) {
   app
