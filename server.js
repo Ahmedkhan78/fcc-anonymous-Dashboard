@@ -11,8 +11,6 @@ const runner = require("./test-runner");
 
 const app = express();
 
-const helmet = require("helmet");
-
 app.use(
   helmet({
     frameguard: { action: "sameorigin" },
