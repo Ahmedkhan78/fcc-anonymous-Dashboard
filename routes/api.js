@@ -8,12 +8,12 @@ module.exports = function (app) {
     .post(threadHandler.postThread)
     .get(threadHandler.getThread)
     .delete(threadHandler.deleteThread)
-    .put(threadHandler.putThread);
+    .put(threadHandler.reportThread);
 
   app
     .route("/api/replies/:board")
     .post(replyHandler.postReply)
     .get(replyHandler.getReply)
     .delete(replyHandler.deleteReply)
-    .put(replyHandler.putReply);
+    .put(replyHandler.reportReply);
 };

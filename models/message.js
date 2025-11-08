@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-mongoose.connect(process.env.MONGO_URI, {
-  dbName: "fcc-messageboard",
-});
+mongoose.connect(process.env.DB);
 
 const replySchema = new Schema({
   text: String,
