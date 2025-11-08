@@ -68,16 +68,11 @@ exports.putReply = async (req, res) => {
   try {
     const thread = await Message.findById(req.body.thread_id);
     if (!thread) return res.send("error");
-
-    for (let reply of thread.replies) {
-      if (String(reply._id) === req.body.reply_id) {
-        reply.reported = true;
-        await thread.save();
-        return res.send("success");
-      }
-    }
-
-    return res.send("error");
+    const reply = thread.replies.id(req.body.reply_id);
+    if (!reply) return res.send("error");
+    reply.reported = true;
+    await thread.save();
+    return res.send("reported");
   } catch (err) {
     return res.send("error");
   }
